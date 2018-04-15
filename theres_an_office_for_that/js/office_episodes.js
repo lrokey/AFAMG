@@ -1,5 +1,18 @@
 // TODO: finish categorizing episodes
 
+// Hello.
+//
+// This is JSHint, a tool that helps to detect errors and potential
+// problems in your JavaScript code.
+//
+// To start, simply enter some JavaScript anywhere on this page. Your
+// report will appear on the right side.
+//
+// Additionally, you can toggle specific options in the Configure
+// menu.
+
+// TODO: finish categorizing episodes
+
 var testData = [
  {
    "SeasonNum": 1,
@@ -379,19 +392,134 @@ var testData = [
    "Title": "Job Fair",
    "Criteria": ["performance reviews", "cringe", "drama", "brave", "romantic"]
  },
-      {
+ {
    "SeasonNum": 4,
    "EpNum": 18,
    "Title": "Goodbye, Toby",
    "Criteria": ["competitive", "cringe", "drama", "entrepreneurial", "romantic"]
+ },
+  {
+   "SeasonNum": 5,
+   "EpNum": 1,
+   "Title": "Weight Loss",
+   "Criteria": ["competitive", "cringe", "drama", "romantic"]
+ },
+   {
+   "SeasonNum": 5,
+   "EpNum": 3,
+   "Title": "Business Ethics",
+   "Criteria": ["cringe", "drama"]
+ },
+    {
+   "SeasonNum": 5,
+   "EpNum": 4,
+   "Title": "Baby Shower",
+   "Criteria": ["cringe", "drama", "jealous"]
+ },
+    {
+   "SeasonNum": 5,
+   "EpNum": 5,
+   "Title": "Crime Aid",
+   "Criteria": ["cringe", "drama", "fiesty", "naughty"]
+ },
+     {
+   "SeasonNum": 5,
+   "EpNum": 6,
+   "Title": "Employee Transfer",
+   "Criteria": ["cringe", "drama", "depressed", "Halloween"]
+ },
+     {
+   "SeasonNum": 5,
+   "EpNum": 7,
+   "Title": "Customer Survey",
+   "Criteria": ["cringe", "drama", "performance reviews", "secretive"]
+ },
+      {
+   "SeasonNum": 5,
+   "EpNum": 8,
+   "Title": " Business Trip",
+   "Criteria": ["cringe", "drama", "fiesty"]
+ },
+      {
+   "SeasonNum": 5,
+   "EpNum": 9,
+   "Title": "Frame Toby",
+   "Criteria": ["cringe", "drama", "vengeful", "surprised"]
+ },
+      {
+   "SeasonNum": 5,
+   "EpNum": 10,
+   "Title": "The Surplus",
+   "Criteria": ["cringe", "drama", "unorthodox", "secretive"]
+ },
+      {
+   "SeasonNum": 5,
+   "EpNum": 11,
+   "Title": "Moroccan Christmas",
+   "Criteria": ["cringe", "drama", "Christmas", "fiery", "unorthodox"]
+ },
+      {
+   "SeasonNum": 5,
+   "EpNum": 12,
+   "Title": "The Duel",
+   "Criteria": ["cringe", "drama", "jealousd"]
+ },
+      {
+   "SeasonNum": 5,
+   "EpNum": 13,
+   "Title": "Prince Family Paper",
+   "Criteria": ["cringe", "drama", "competitive", "Hilary Swank"]
+ },
+      {
+   "SeasonNum": 5,
+   "EpNum": 14,
+   "Title": "Stress Relief",
+   "Criteria": ["cringe", "drama", "stressed", "depressed"]
+ },
+      {
+   "SeasonNum": 5,
+   "EpNum": 16,
+   "Title": "Lecture Circuit",
+   "Criteria": ["cringe", "drama", "birthday"]
+ },
+      {
+   "SeasonNum": 5,
+   "EpNum": 18,
+   "Title": "Blood Drive",
+   "Criteria": ["cringe", "drama", "depressed", "Valentines Day", "fiesty", "romantic"]
+ },
+      {
+   "SeasonNum": 5,
+   "EpNum": 19,
+   "Title": "Golden Ticket",
+   "Criteria": ["cringe", "drama", "Willy Wonka"]
+ },
+      {
+   "SeasonNum": 5,
+   "EpNum": 20,
+   "Title": "New Boss",
+   "Criteria": ["cringe", "drama", "Idris Elba"]
+ },
+      {
+   "SeasonNum": 5,
+   "EpNum": 21,
+   "Title": "Two Weeks",
+   "Criteria": ["cringe", "drama", "Idris Elba", "entrepreneurial"]
+ },
+      {
+   "SeasonNum": 5,
+   "EpNum": 22,
+   "Title": "Dream Team",
+   "Criteria": ["cringe", "drama", "Idris Elba", "entrepreneurial", "competitive"]
  }
-];
+ ];
+
 var categories = {
-  "verbs": "agitated,cringe,cry,feisty,forgiving,hungry,jealous,laugh,proud,surprised",
+  "verbs": "agitated,cringe,cry,feisty,forgiving,hungry,jealous,laugh,proud,surprised,stressed",
   "adjectives": "angry,bored,brave,competitive,conspiratory,creative,creepy,depressed,entrepreneurial,fiery,feisty,forgiving,gossipy,hungry,jealous,loyal,lucky,naughty,obnoxious,overwhelmed,proud,racy,romantic,secretive,shady,sporty,unorthodox,vengeful",
-  "nouns": "Ben Franklin,cats,Chilis,drama,driving,feminism,finer things,friendship,pasta,performance reviews,ping pong,PMS,pretzels,prison,rabies,running,twins,vacation,vampires",
+  "nouns": "Ben Franklin,cats,Chilis,drama,driving,feminism,finer things,friendship,pasta,performance reviews,ping pong,PMS,pretzels,prison,rabies,running,twins,vacation,vampires,Hilary Swank, Willy Wonka, Idris Elba",
   "holidays": "birthday,Christmas,Diwali,Halloween,Thanksgiving,Valentines Day"
-}
+};
 
 function Episode(title, seasonNum, episodeNum){
   this.title = title;
@@ -402,8 +530,8 @@ function Episode(title, seasonNum, episodeNum){
 var numOfEpisodesToShowToUser = 3;
 
 function shuffle(a) {
-    for (let i = a.length; i; i--) {
-        let j = Math.floor(Math.random() * i);
+    for (var i = a.length; i; i--) {
+        var j = Math.floor(Math.random() * i);
         [a[i - 1], a[j]] = [a[j], a[i - 1]];
     }
     return a;
@@ -424,10 +552,10 @@ function curateOfficeEpisodes(userCriteria) {
   var curatedEpisodes = [];
   var numOfEpisodes = testData.length;
   for (var i = 0; i < numOfEpisodes; i++) {
-    var seasonNum = testData[i]['SeasonNum'];
-    var episodeNum = testData[i]['EpNum'];
-    var title = testData[i]['Title'];
-    var moods = testData[i]['Criteria'];
+    var seasonNum = testData[i].SeasonNum;
+    var episodeNum = testData[i].EpNum;
+    var title = testData[i].Title;
+    var moods = testData[i].Criteria;
     for (var j = 0; j < moods.length; j++){
         if (moods[j] == userCriteria){
           var episode = new Episode(title, seasonNum, episodeNum);
